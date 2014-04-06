@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
@@ -28,7 +29,7 @@ public class MainActivity extends Activity {
 	public void onSearchButtonClick(View v) {
 		Intent intent = new Intent(this, SearchResultActivity.class);
 		
-		TextView subjView = (TextView) findViewById(R.id.subjSearch);
+		EditText subjView = (EditText) findViewById(R.id.subjSearch);
 		String query = subjView.getText().toString();
 		intent.putExtra("subject", query);
 		startActivity(intent);
