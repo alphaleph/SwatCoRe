@@ -9,5 +9,6 @@
     <string name="courseoverview_TitleLabel">Title: </string>
     <string name="courseoverview_TitleValue">*Course Title*</string>
     <string name="title_activity_courseoverview">Course Overview</string>
+    <string name="noresults_msg">No Results Found</string>
 
 </resources>

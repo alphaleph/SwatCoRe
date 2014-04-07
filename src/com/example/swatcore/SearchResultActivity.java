@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.parse.FindCallback;
 import com.parse.Parse;
@@ -22,6 +23,7 @@ import com.parse.ParseQuery;
 public class SearchResultActivity extends ListActivity {
 
 	public static String category;
+	public static String noresultsmsg = "No Results found";
 	public String[] titles;
 	private ListView mListView;
 	
@@ -44,13 +46,22 @@ public class SearchResultActivity extends ListActivity {
 			public void done(List<ParseObject> objects, ParseException e) {
 				// TODO Auto-generated method stub
 				
-				titles = new String[objects.size()];
-				//Log.d("SEARCHRESULT", "Im in the function! " + objects.size());
-				for (int i=0; i<objects.size(); i++) {
-					titles[i] = objects.get(i).getString("title");
-					Log.d("SEARCHRESULT", objects.get(i).getString("title"));
+				if (objects.size() == 0) {
+					titles = new String[1];
+					titles[0] = "No results found";
+					
+					//TextView noresults = new TextView(SearchResultActivity.this);
+					//noresults.setText(noresultsmsg);
+					//setContentView(R.layout.noresults_page);
 				}
-				
+				else {
+					titles = new String[objects.size()];
+					//Log.d("SEARCHRESULT", "Im in the function! " + objects.size());
+					for (int i=0; i<objects.size(); i++) {
+						titles[i] = objects.get(i).getString("title");
+						Log.d("SEARCHRESULT", objects.get(i).getString("title"));
+					}
+				}
 				ArrayAdapter<String> mListAdapter = new ArrayAdapter<String>(SearchResultActivity.this, R.layout.search_result_item, titles);
 				mListView.setAdapter(mListAdapter);
 			}
@@ -81,9 +92,11 @@ public class SearchResultActivity extends ListActivity {
 		// TODO Auto-generated method stub
 		super.onListItemClick(l, v, position, id);
 		
-		Intent i = new Intent (this, CourseOverviewActivity.class);
-		i.putExtra("title", titles[position]);
-		startActivity(i);
+		if (!titles[position].equals("No results found")) {
+			Intent i = new Intent (this, CourseOverviewActivity.class);
+			i.putExtra("title", titles[position]);
+			startActivity(i);
+		}
 	}
 	
 	@Override

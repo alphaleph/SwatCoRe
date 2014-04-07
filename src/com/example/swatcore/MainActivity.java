@@ -46,18 +46,18 @@ public class MainActivity extends Activity {
 		Log.v("subQuery", subQuery);
 		Log.v("insQuery", insQuery);
 		
-		if (!subQuery.equals("")) {
-			Log.v("empty?", "I am an empty (" + subQuery + ")");
-			intent.putExtra(category1, subQuery);
+		if (subQuery.equals("") && insQuery.equals("")) {
+			return;
 		}
-		if (!insQuery.equals("")) {
-			Log.v("empty?", "I am an empty (" + insQuery + ")");
-			intent.putExtra(category2, insQuery);
+		else {
+			if (!subQuery.equals("")) {
+				intent.putExtra(category1, subQuery);
+			}
+			if (!insQuery.equals("")) {
+				intent.putExtra(category2, insQuery);
+			}
+			startActivity(intent);
 		}
-		if (subQuery.equals(null) && insQuery.equals(null)) {
-			//Toast.makeText(currContext, EMPTY_MSG, Toast.LENGTH_SHORT);
-		}
-		startActivity(intent);
 	}
 
 }
