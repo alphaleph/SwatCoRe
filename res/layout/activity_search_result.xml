@@ -11,7 +11,7 @@
     tools:context=".SearchResultActivity" >
 
     <ListView
-        android1:id="@+id/searchResults"
+        android1:id="@android:id/list"
         android1:layout_width="match_parent"
         android1:layout_height="wrap_content" >
     </ListView>

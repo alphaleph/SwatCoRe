@@ -29,6 +29,10 @@
             android:name="com.example.swatcore.SearchResultActivity"
             android:label="@string/title_activity_search_result" >
         </activity>
+        <activity
+            android:name="com.example.swatcore.CourseOverviewActivity"
+            android:label="@string/title_activity_courseoverview" >
+        </activity>
     </application>
 
 </manifest>
