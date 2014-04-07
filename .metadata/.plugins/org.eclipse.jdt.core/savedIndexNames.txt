@@ -1,0 +1,3 @@
+INDEX VERSION 1.126+/Users/yyc/Documents/CIS350/SwatCoRe/.metadata/.plugins/org.eclipse.jdt.core
+1176879850.index
+1542256292.index

@@ -1,6 +1,7 @@
 package com.example.swatcore;
 
 import java.util.List;
+import java.util.Set;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -18,11 +19,10 @@ import com.parse.ParseQuery;
 
 public class SearchResultActivity extends Activity {
 
-	public static String category = "subject";
+	public static String category;
 	public String[] titles;
 	private ListView mListView;
 	
-	private static boolean dbinit;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +33,18 @@ public class SearchResultActivity extends Activity {
 		Log.v("SearchResultActivity", "I'm in the searchresultactivity!");
 		
 		Intent intent = getIntent();
-		String searchquery = intent.getStringExtra(category);
-		Log.d("INTENT", searchquery);
 		
+		//String searchquery = intent.getStringExtra(category);
+		Bundle extras = intent.getExtras();
+		Set<String> keys = extras.keySet();
+
 		ParseQuery<ParseObject> query = ParseQuery.getQuery("Spring2014");
-		query.whereEqualTo(category, searchquery);
+		for (String item : keys) {
+			String searchQuery = extras.getString(item);
+			query.whereEqualTo(item, searchQuery);
+		}
+
+		query.orderByAscending("title");
 		
 		query.findInBackground(new FindCallback<ParseObject>() {
 			
