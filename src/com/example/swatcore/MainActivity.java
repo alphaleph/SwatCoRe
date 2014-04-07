@@ -3,6 +3,7 @@ package com.example.swatcore;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -32,6 +33,8 @@ public class MainActivity extends Activity {
 		EditText subjView = (EditText) findViewById(R.id.subjSearch);
 		String query = subjView.getText().toString();
 		intent.putExtra("subject", query);
+		Log.v("STARTINTENT", "query is " + query);
+		Log.v("STARTINTENT", "intent's Extra is " + intent.getStringExtra("subject"));
 		startActivity(intent);
 	}
 
