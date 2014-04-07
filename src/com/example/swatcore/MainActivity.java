@@ -3,9 +3,11 @@ package com.example.swatcore;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
@@ -28,9 +30,11 @@ public class MainActivity extends Activity {
 	public void onSearchButtonClick(View v) {
 		Intent intent = new Intent(this, SearchResultActivity.class);
 		
-		TextView subjView = (TextView) findViewById(R.id.subjSearch);
+		EditText subjView = (EditText) findViewById(R.id.subjSearch);
 		String query = subjView.getText().toString();
 		intent.putExtra("subject", query);
+		Log.v("STARTINTENT", "query is " + query);
+		Log.v("STARTINTENT", "intent's Extra is " + intent.getStringExtra("subject"));
 		startActivity(intent);
 	}
 

@@ -22,13 +22,15 @@ public class SearchResultActivity extends Activity {
 	public String[] titles;
 	private ListView mListView;
 	
+	private static boolean dbinit;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_search_result);
 		mListView = (ListView) findViewById(R.id.searchResults);
 		
-		Parse.initialize(this, "3eWLBFPyLhUcb6VRbFbqqKukgSd0rgdDDb59SoVp", "syH8jfou3mlJta9ELmyy0xmzNuKskOgKVU5BhH4j");
+		Log.v("SearchResultActivity", "I'm in the searchresultactivity!");
 		
 		Intent intent = getIntent();
 		String searchquery = intent.getStringExtra(category);
