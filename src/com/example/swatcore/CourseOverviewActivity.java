@@ -7,6 +7,7 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -81,6 +82,20 @@ public class CourseOverviewActivity extends ListActivity {
 		query.orderByAscending("fullName");
 
 		return query;
+	}
+	
+	@Override
+	protected void onListItemClick(ListView l, View v, int position, long id) {
+		// TODO Auto-generated method stub
+		super.onListItemClick(l, v, position, id);
+		
+		if (!instructors[position].equals(NO_RESULTS_MSG)) {
+			Intent i = new Intent (this, ICProfileActivity.class);
+			i.putExtra("title", courseTitle);
+			i.putExtra("fullName", instructors[position]);
+			Log.v("COURSEOVERVIEW", "Initializing ICProfileActivity");
+			startActivity(i);
+		}
 	}
 	
 }
