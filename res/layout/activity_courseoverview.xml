@@ -32,4 +32,22 @@
         android:text="@string/courseoverview_TitleValue"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/courseoverview_titlelabel"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp" >
+    </ListView>
+
+    <TextView
+        android:id="@+id/insLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/courseoverview_titlelabel"
+        android:text="@string/courseoverview_insLabel"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
 </RelativeLayout>

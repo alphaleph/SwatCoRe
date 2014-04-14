@@ -1,5 +1,6 @@
 package com.example.swatcore;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -24,8 +25,8 @@ public class SearchResultActivity extends ListActivity {
 
 	public static String category;
 	public static final String NO_RESULTS_MSG = "No Results Found";
-	public String[] titles;
-	private ListView mListView;
+	private String[] buffCourseTitles, courseTitles;	
+	private ListView courseLV;
 	
 	private ParseQuery<ParseObject> query;
 	private static final String COURSE_TABLE = "Course";
@@ -36,7 +37,7 @@ public class SearchResultActivity extends ListActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_search_result);
 		//mListView = (ListView) findViewById(R.id.searchResults);
-		mListView = getListView();
+		courseLV = getListView();
 		
 		Log.v("SearchResultActivity", "I'm in the searchresultactivity!");
 		
@@ -48,19 +49,34 @@ public class SearchResultActivity extends ListActivity {
 				// TODO Auto-generated method stub
 				
 				if (objects.size() == 0) {
-					titles = new String[1];
-					titles[0] = NO_RESULTS_MSG;
+					buffCourseTitles = new String[1];
+					buffCourseTitles[0] = NO_RESULTS_MSG;
 				}
 				else {
-					titles = new String[objects.size()];
-					//Log.d("SEARCHRESULT", "Im in the function! " + objects.size());
-					for (int i=0; i<objects.size(); i++) {
-						titles[i] = objects.get(i).getString("title");
-						Log.d("SEARCHRESULT", objects.get(i).getString("title"));
+					Set<String> courseSet = new HashSet<String>();
+					String courseTitle;
+					buffCourseTitles = new String[objects.size()];
+					
+					int i = 0;
+					for (ParseObject object : objects) {
+						courseTitle = object.getString("title");
+						if (courseSet.add(courseTitle)) {
+							buffCourseTitles[i] = courseTitle;
+							Log.d("SEARCHRESULT", courseTitle + " " + i + " " + buffCourseTitles[i]);
+							i++;
+						}
+					}
+					
+					Log.d("SEARCHRESULT", "courseSet Size: " + courseSet.size() + "  buffCourseTitles[0] = " + buffCourseTitles[0]);
+					courseTitles = new String[courseSet.size()];
+					for (int j = 0; j < courseSet.size(); j++) {
+						Log.d("SEARCHRESULT", "j: " + j);
+						courseTitles[j] = buffCourseTitles[j];
+						Log.d("SEARCHRESULT", "courseTitles[" + j + "] = "+ courseTitles[j]);
 					}
 				}
-				ArrayAdapter<String> mListAdapter = new ArrayAdapter<String>(SearchResultActivity.this, R.layout.search_result_item, titles);
-				mListView.setAdapter(mListAdapter);
+				ArrayAdapter<String> courseListAdapter = new ArrayAdapter<String>(SearchResultActivity.this, R.layout.search_result_item, courseTitles);
+				courseLV.setAdapter(courseListAdapter);
 			}
 		});
 		
@@ -70,13 +86,13 @@ public class SearchResultActivity extends ListActivity {
 		// TODO Auto-generated method stub
 		Intent intent = getIntent();
 		Bundle extras = intent.getExtras();
-		Set<String> keys = extras.keySet();
+		Set<String> searchCategories = extras.keySet();
 
 		query = ParseQuery.getQuery(COURSE_TABLE); 
-		for (String item : keys) {
-			String searchQuery = extras.getString(item);
-			query.whereEqualTo(item, searchQuery);
-			Log.v("For-Loop for keys", "item is" + item + ", searchQuery is" + searchQuery);
+		for (String category : searchCategories) {
+			String searchQuery = extras.getString(category);
+			query.whereEqualTo(category, searchQuery);
+			Log.v("For-Loop for keys", "item is" + category + ", searchQuery is" + searchQuery);
 		}
 		
 		query.orderByAscending("title");
@@ -89,9 +105,10 @@ public class SearchResultActivity extends ListActivity {
 		// TODO Auto-generated method stub
 		super.onListItemClick(l, v, position, id);
 		
-		if (!titles[position].equals(NO_RESULTS_MSG)) {
+		if (!buffCourseTitles[position].equals(NO_RESULTS_MSG)) {
 			Intent i = new Intent (this, CourseOverviewActivity.class);
-			i.putExtra("title", titles[position]);
+			i.putExtra("title", buffCourseTitles[position]);
+			Log.v("SEARCHRESULT", "Initializing CourseOverView");
 			startActivity(i);
 		}
 	}
