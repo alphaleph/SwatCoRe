@@ -23,11 +23,12 @@ import com.parse.ParseQuery;
 public class SearchResultActivity extends ListActivity {
 
 	public static String category;
-	public static String noresultsmsg = "No Results found";
+	public static final String NO_RESULTS_MSG = "No Results Found";
 	public String[] titles;
 	private ListView mListView;
 	
 	private ParseQuery<ParseObject> query;
+	private static final String COURSE_TABLE = "Course";
 	
 	
 	@Override
@@ -48,11 +49,7 @@ public class SearchResultActivity extends ListActivity {
 				
 				if (objects.size() == 0) {
 					titles = new String[1];
-					titles[0] = "No results found";
-					
-					//TextView noresults = new TextView(SearchResultActivity.this);
-					//noresults.setText(noresultsmsg);
-					//setContentView(R.layout.noresults_page);
+					titles[0] = NO_RESULTS_MSG;
 				}
 				else {
 					titles = new String[objects.size()];
@@ -75,7 +72,7 @@ public class SearchResultActivity extends ListActivity {
 		Bundle extras = intent.getExtras();
 		Set<String> keys = extras.keySet();
 
-		query = ParseQuery.getQuery("Spring2014");
+		query = ParseQuery.getQuery(COURSE_TABLE); 
 		for (String item : keys) {
 			String searchQuery = extras.getString(item);
 			query.whereEqualTo(item, searchQuery);
@@ -92,7 +89,7 @@ public class SearchResultActivity extends ListActivity {
 		// TODO Auto-generated method stub
 		super.onListItemClick(l, v, position, id);
 		
-		if (!titles[position].equals("No results found")) {
+		if (!titles[position].equals(NO_RESULTS_MSG)) {
 			Intent i = new Intent (this, CourseOverviewActivity.class);
 			i.putExtra("title", titles[position]);
 			startActivity(i);

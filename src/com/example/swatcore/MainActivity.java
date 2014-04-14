@@ -18,6 +18,7 @@ public class MainActivity extends Activity {
 	public String category2 = null;
 	//private Context currContext = getApplicationContext();
 	private final static String EMPTY_MSG = "Please enter something.";
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
