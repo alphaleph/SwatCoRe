@@ -5,11 +5,18 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_search_result">SearchResultActivity</string>
+    <string name="title_activity_courseoverview">CourseOverview</string>
     <string name="courseoverview_pageheader">Course Overview</string>
     <string name="courseoverview_TitleLabel">Title: </string>
     <string name="courseoverview_TitleValue">*Course Title*</string>
     <string name="courseoverview_insLabel">Instructors:</string>
-    <string name="title_activity_courseoverview">CourseOverview</string>
+    <string name="icprofile_pageheader">Instructor-Course Profile</string>
+    <string name="icprofile_CourseLabel">Course: </string>
+    <string name="icprofile_CourseValue">*Course Title*</string>
+    <string name="icprofile_InsLabel">Instructor: </string>
+    <string name="icprofile_InsValue">*Instructor Name*</string>
+    <string name="icprofile_ReviewsLabel">Reviews:</string>
     <string name="noresults_msg">No Results Found</string>
+    <string name="title_activity_icprofile">MainActivity</string>
 
 </resources>
