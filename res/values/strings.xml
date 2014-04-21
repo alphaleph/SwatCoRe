@@ -6,6 +6,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_search_result">SearchResultActivity</string>
     <string name="title_activity_courseoverview">CourseOverview</string>
+    <string name="title_activity_addreview">AddReview</string>
     <string name="courseoverview_pageheader">Course Overview</string>
     <string name="courseoverview_TitleLabel">Title: </string>
     <string name="courseoverview_TitleValue">*Course Title*</string>
@@ -18,5 +19,12 @@
     <string name="icprofile_ReviewsLabel">Reviews:</string>
     <string name="noresults_msg">No Results Found</string>
     <string name="title_activity_icprofile">MainActivity</string>
+    <string name="icprofile_addreviewbutton">Add Review</string>
+    <string name="main_searchbutton">Find</string>
+    <string name="addreview_pageheader">Add New Review</string>
+    <string name="addreview_scoreLabel">"Score: "</string>
+    <string name="addReview_emailLabel">"Email: "</string>
+    <string name="addReview_reviewLabel">"Review: "</string>
+    <string name="addReview_submitButton">Create</string>
 
 </resources>

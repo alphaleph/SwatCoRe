@@ -23,7 +23,7 @@ public class CourseOverviewActivity extends ListActivity {
 	private String[] instructors;
 	public static final String NO_RESULTS_MSG = "No Results Found";
 	
-	ParseQuery<ParseObject> query;
+	ParseQuery<ParseObject> insQuery;
 	private static final String COURSE_TABLE = "Course";
 	private String courseTitle;
 	
@@ -48,8 +48,8 @@ public class CourseOverviewActivity extends ListActivity {
 		
 		Log.v("CourseOverviewActivity", "I'm about to make the query!");
 		
-		query = createQuery();
-		query.findInBackground(new FindCallback<ParseObject>() {
+		insQuery = createInsQuery(courseTitle);
+		insQuery.findInBackground(new FindCallback<ParseObject>() {
 			
 			@Override
 			public void done(List<ParseObject> objects, ParseException e) {
@@ -73,14 +73,10 @@ public class CourseOverviewActivity extends ListActivity {
 		});
 	}
 	
-	private ParseQuery<ParseObject> createQuery() {
-
-		query = ParseQuery.getQuery(COURSE_TABLE); 
-		query.whereEqualTo("title", courseTitle);
-		Log.v("COURSEOVERVIEW", "Finding Instructors for" + courseTitle);
-
+	private ParseQuery<ParseObject> createInsQuery(String course) {
+		ParseQuery<ParseObject> query = ParseQuery.getQuery(COURSE_TABLE);
+		query.whereEqualTo("title", course);
 		query.orderByAscending("fullName");
-
 		return query;
 	}
 	
@@ -93,9 +89,46 @@ public class CourseOverviewActivity extends ListActivity {
 			Intent i = new Intent (this, ICProfileActivity.class);
 			i.putExtra("title", courseTitle);
 			i.putExtra("fullName", instructors[position]);
+			String objID = getICobjectID(courseTitle, instructors[position]);
+			i.putExtra("objectId",  objID);
 			Log.v("COURSEOVERVIEW", "Initializing ICProfileActivity");
 			startActivity(i);
 		}
+	}
+
+	private String getICobjectID(String courseTitle, String insName) {
+		// TODO Auto-generated method stub
+		
+		ParseQuery<ParseObject> ObjectIDQuery = createICObjectIDQuery(courseTitle, insName);
+		List<ParseObject> objects = null;
+		try {
+			objects = ObjectIDQuery.find();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String objID = null;
+		for (ParseObject object : objects) {
+			objID = object.getObjectId();
+		}
+		
+		if (objID.equals(null)) {
+			Log.wtf("fuck me", "objID is null");
+		}
+		else {
+			Log.v("YAYYYY", "objID is" + objID);
+		}
+		
+		return objID;
+	}
+	
+	private ParseQuery<ParseObject> createICObjectIDQuery(String course, String insName) {
+		
+		ParseQuery<ParseObject> query = ParseQuery.getQuery(COURSE_TABLE); 
+		query.whereEqualTo("title", course);
+		query.whereEqualTo("fullName", insName);
+		query.orderByAscending("fullName");
+		return query;
 	}
 	
 }

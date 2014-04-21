@@ -38,6 +38,10 @@
             android:name="com.example.swatcore.ICProfileActivity"
             android:label="@string/title_activity_icprofile" >
         </activity>
+        <activity
+            android:name="com.example.swatcore.AddReviewActivity"
+            android:label="@string/title_activity_addreview" >
+        </activity>
     </application>
 
 </manifest>

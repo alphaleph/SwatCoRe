@@ -23,7 +23,7 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		Log.v("onCreate","at onCreate");
+		Log.v("MAIN","at onCreate");
 		
 		//Button searchButton = (Button) findViewById(R.id.searchButton);
 	}
@@ -34,6 +34,7 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
+	
 	
 	public void onSearchButtonClick(View v) {
 		category1 = "subject";
@@ -60,5 +61,5 @@ public class MainActivity extends Activity {
 			startActivity(intent);
 		}
 	}
-
 }
+

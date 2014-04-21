@@ -69,7 +69,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/icprofile_ReviewsLabel" >
+        android:layout_below="@+id/icprofile_ReviewsLabel"
+        tools:listitem="@android:layout/simple_expandable_list_item_2" >
+
     </ListView>
+
+    <Button
+        android:id="@+id/icprofile_addbutton"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/icprofile_ReviewsLabel"
+        android:layout_alignBottom="@+id/icprofile_ReviewsLabel"
+        android:layout_alignRight="@+id/icprofile_header"
+        android:onClick="onAddButtonClick"
+        android:text="@string/icprofile_addreviewbutton" />
 
 </RelativeLayout>
