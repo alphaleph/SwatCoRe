@@ -24,10 +24,6 @@ public class ICProfileActivity extends ListActivity {
 	private String courseTitle, instructor, objID;
 	ParseQuery<ParseObject> revQuery;
 	private static final String REVIEW_TABLE = "Review";
-	
-	public int numReviews = 0;
-	public double avQuality = 0;
-	public double avDifficulty = 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -46,18 +42,6 @@ public class ICProfileActivity extends ListActivity {
 		insValueView.setText(instructor);
 	
 		populateList();
-		
-		TextView reviewLabel = (TextView) findViewById(R.id.icprofile_ReviewsLabel);
-		reviewLabel.setText("Reviews (" + numReviews + "): ");
-		
-		if (numReviews == 0) {
-			TextView avRatingsMessage = (TextView) findViewById(R.id.icprofile_ratingsMessage);
-			avRatingsMessage.setText("No reviews yet!");
-		}
-		else {
-			TextView avRatingsMessage = (TextView) findViewById(R.id.icprofile_ratingsMessage);
-			avRatingsMessage.setText("Course Quality: " + avQuality + ", Difficulty: " + avDifficulty);
-		}
 	}
 	
 	@Override
@@ -102,11 +86,22 @@ public class ICProfileActivity extends ListActivity {
 					
 					Log.v("average", "qualitySum = " + qualitySum);
 					Log.v("average", "difficultySum = " + difficultySum);
-					Log.v("average", "numRev = " + numRev);
+					Log.v("average", "numRev =  " + numRev);
 					
-					ICProfileActivity.this.avQuality = qualitySum / numRev;
-					ICProfileActivity.this.avDifficulty = difficultySum / numRev;
-					ICProfileActivity.this.numReviews = numRev;
+					double avQuality = qualitySum / numRev;
+					double avDifficulty = difficultySum / numRev;
+					
+					TextView reviewLabel = (TextView) findViewById(R.id.icprofile_ReviewsLabel);
+					reviewLabel.setText("Reviews (" + numRev + "): ");
+					
+					if (numRev == 0) {
+						TextView avRatingsMessage = (TextView) findViewById(R.id.icprofile_ratingsMessage);
+						avRatingsMessage.setText("No reviews yet!");
+					}
+					else {
+						TextView avRatingsMessage = (TextView) findViewById(R.id.icprofile_ratingsMessage);
+						avRatingsMessage.setText("Course Quality: " + avQuality + ", Difficulty: " + avDifficulty);
+					}
 					
 				}
 				SimpleAdapter adapter = new SimpleAdapter(ICProfileActivity.this, 

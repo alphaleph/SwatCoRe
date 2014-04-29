@@ -30,6 +30,7 @@ public class SearchResultActivity extends ListActivity {
 	
 	private ParseQuery<ParseObject> query;
 	private static final String COURSE_TABLE = "Course";
+	private static final int MAX_RESULTS = 1000;
 	
 	
 	@Override
@@ -47,10 +48,10 @@ public class SearchResultActivity extends ListActivity {
 			@Override
 			public void done(List<ParseObject> objects, ParseException e) {
 				// TODO Auto-generated method stub
-				
+				Log.v("Object size", "Object size is " + objects.size());
 				if (objects.size() == 0) {
-					buffCourseTitles = new String[1];
-					buffCourseTitles[0] = NO_RESULTS_MSG;
+					courseTitles = new String[1];
+					courseTitles[0] = NO_RESULTS_MSG;
 				}
 				else {
 					Set<String> courseSet = new HashSet<String>();
@@ -86,15 +87,21 @@ public class SearchResultActivity extends ListActivity {
 		// TODO Auto-generated method stub
 		Intent intent = getIntent();
 		Bundle extras = intent.getExtras();
-		Set<String> searchCategories = extras.keySet();
-
 		query = ParseQuery.getQuery(COURSE_TABLE); 
-		for (String category : searchCategories) {
-			String searchQuery = extras.getString(category);
-			query.whereEqualTo(category, searchQuery);
-			Log.v("For-Loop for keys", "item is" + category + ", searchQuery is" + searchQuery);
+		if (extras == null) {
+			query.setLimit(MAX_RESULTS);
+			query.whereExists("subject");
 		}
-		
+		else {
+			Set<String> searchCategories = extras.keySet();
+
+			for (String category : searchCategories) {
+				String searchQuery = extras.getString(category);
+				query.whereEqualTo(category, searchQuery);
+				Log.v("For-Loop for keys", "item is" + category + ", searchQuery is" + searchQuery);
+			}
+		}
+
 		query.orderByAscending("title");
 		
 		return query;

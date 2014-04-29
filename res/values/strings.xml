@@ -3,7 +3,6 @@
 
     <string name="app_name">SwatCore</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
     <string name="title_activity_search_result">SearchResultActivity</string>
     <string name="title_activity_courseoverview">CourseOverview</string>
     <string name="title_activity_addreview">AddReview</string>
@@ -21,12 +20,15 @@
     <string name="title_activity_icprofile">MainActivity</string>
     <string name="icprofile_addreviewbutton">Add Review</string>
     <string name="main_searchbutton">Find</string>
+    <string name="main_subjSpin">Subject</string>
+    <string name="main_instructorHint">Instructor</string>
     <string name="addreview_pageheader">Add New Review</string>
     <string name="addreview_qualityLabel">"Course Quality: "</string>
     <string name="addReview_emailLabel">"Email: "</string>
     <string name="addReview_reviewLabel">"Review: "</string>
     <string name="addReview_submitButton">Create</string>
     <string name="addReview_outoften">/10</string>
+
     <string name="addreview_difficultyLabel">&quot;Difficulty: &quot;</string>
     <string name="icprofile_RatingsLabel">Average Ratings:</string>
     <string name="Loading">Loading, please wait...</string>

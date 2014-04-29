@@ -48,13 +48,13 @@ public final class R {
         public static final int icprofile_titleValue=0x7f080011;
         public static final int icprofile_titlelabel=0x7f080010;
         public static final int insLabel=0x7f08000f;
-        public static final int insSearch=0x7f080019;
+        public static final int insSearch=0x7f08001a;
         public static final int noresults=0x7f08001b;
         public static final int qualityOutOfTen=0x7f080006;
         public static final int scoreMessage=0x7f08001c;
-        public static final int searchButton=0x7f08001a;
+        public static final int searchButton=0x7f080019;
         public static final int searchresult_item=0x7f08001e;
-        public static final int subjSearch=0x7f080018;
+        public static final int subjSpin=0x7f080018;
         public static final int textView1=0x7f080016;
     }
     public static final class layout {
@@ -73,47 +73,39 @@ public final class R {
         public static final int search_result=0x7f070002;
     }
     public static final class string {
-        public static final int Loading=0x7f05001c;
+        public static final int Loading=0x7f05001d;
         public static final int action_settings=0x7f050001;
-        public static final int addReview_emailLabel=0x7f050016;
-        public static final int addReview_outoften=0x7f050019;
-        public static final int addReview_reviewLabel=0x7f050017;
-        public static final int addReview_submitButton=0x7f050018;
-        public static final int addreview_difficultyLabel=0x7f05001a;
-        public static final int addreview_pageheader=0x7f050014;
-        public static final int addreview_qualityLabel=0x7f050015;
+        public static final int addReview_emailLabel=0x7f050017;
+        public static final int addReview_outoften=0x7f05001a;
+        public static final int addReview_reviewLabel=0x7f050018;
+        public static final int addReview_submitButton=0x7f050019;
+        public static final int addreview_difficultyLabel=0x7f05001b;
+        public static final int addreview_pageheader=0x7f050015;
+        public static final int addreview_qualityLabel=0x7f050016;
         public static final int app_name=0x7f050000;
-        public static final int courseoverview_TitleLabel=0x7f050007;
-        public static final int courseoverview_TitleValue=0x7f050008;
-        public static final int courseoverview_insLabel=0x7f050009;
-        public static final int courseoverview_pageheader=0x7f050006;
-        public static final int hello_world=0x7f050002;
-        public static final int icprofile_CourseLabel=0x7f05000b;
-        public static final int icprofile_CourseValue=0x7f05000c;
-        public static final int icprofile_InsLabel=0x7f05000d;
-        public static final int icprofile_InsValue=0x7f05000e;
-        public static final int icprofile_RatingsLabel=0x7f05001b;
-        public static final int icprofile_ReviewsLabel=0x7f05000f;
-        public static final int icprofile_addreviewbutton=0x7f050012;
-        public static final int icprofile_pageheader=0x7f05000a;
-        public static final int main_searchbutton=0x7f050013;
-        public static final int noresults_msg=0x7f050010;
-        public static final int title_activity_addreview=0x7f050005;
-        public static final int title_activity_courseoverview=0x7f050004;
-        public static final int title_activity_icprofile=0x7f050011;
-        public static final int title_activity_search_result=0x7f050003;
+        public static final int courseoverview_TitleLabel=0x7f050006;
+        public static final int courseoverview_TitleValue=0x7f050007;
+        public static final int courseoverview_insLabel=0x7f050008;
+        public static final int courseoverview_pageheader=0x7f050005;
+        public static final int icprofile_CourseLabel=0x7f05000a;
+        public static final int icprofile_CourseValue=0x7f05000b;
+        public static final int icprofile_InsLabel=0x7f05000c;
+        public static final int icprofile_InsValue=0x7f05000d;
+        public static final int icprofile_RatingsLabel=0x7f05001c;
+        public static final int icprofile_ReviewsLabel=0x7f05000e;
+        public static final int icprofile_addreviewbutton=0x7f050011;
+        public static final int icprofile_pageheader=0x7f050009;
+        public static final int main_instructorHint=0x7f050014;
+        public static final int main_searchbutton=0x7f050012;
+        public static final int main_subjSpin=0x7f050013;
+        public static final int noresults_msg=0x7f05000f;
+        public static final int title_activity_addreview=0x7f050004;
+        public static final int title_activity_courseoverview=0x7f050003;
+        public static final int title_activity_icprofile=0x7f050010;
+        public static final int title_activity_search_result=0x7f050002;
     }
     public static final class style {
         /** 
-        Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
-    
-
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        
-
         Base application theme for API 11+. This theme completely replaces
         AppBaseTheme from res/values/styles.xml on API 11+ devices.
     
@@ -125,10 +117,8 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f060000;
-        /**  Application theme. 
- All customizations that are NOT specific to a particular API-level can go here. 
-         */
-        public static final int AppTheme=0x7f060001;
+        public static final int AppBaseTheme=0x7f060002;
+        public static final int MyActionBar=0x7f060001;
+        public static final int MyTheme=0x7f060000;
     }
 }
