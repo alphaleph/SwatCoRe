@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -9,32 +9,28 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <EditText
-        android:id="@+id/subjSearch"
-        android:layout_width="wrap_content"
+    <Spinner
+        android:id="@+id/subjSpin"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:ems="10" 
-        android:hint="Subj">
-
-    </EditText>
-    
-    <EditText
-        android:id="@+id/insSearch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:ems="10" 
-        android:hint="Instructor">
-
-    </EditText>
+        android:prompt="@string/main_subjSpin"/>
  
     <Button
         android:id="@+id/searchButton"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/insSearch"
         android:onClick="onSearchButtonClick"
-        android:text="@string/main_searchbutton" />
+        android:text="@string/main_searchButton" />
 
-</LinearLayout>
+    <EditText
+        android:id="@+id/insSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/subjSpin"
+        android:layout_below="@+id/subjSpin"
+        android:ems="10"
+        android:hint="@string/main_instructorHint" />
+
+</RelativeLayout>

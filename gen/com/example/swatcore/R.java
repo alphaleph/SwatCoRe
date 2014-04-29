@@ -44,12 +44,12 @@ public final class R {
         public static final int icprofile_titleValue=0x7f08000d;
         public static final int icprofile_titlelabel=0x7f08000c;
         public static final int insLabel=0x7f08000b;
-        public static final int insSearch=0x7f080013;
+        public static final int insSearch=0x7f080014;
         public static final int noresults=0x7f080015;
         public static final int scoreValue=0x7f080016;
-        public static final int searchButton=0x7f080014;
+        public static final int searchButton=0x7f080013;
         public static final int searchresult_item=0x7f080018;
-        public static final int subjSearch=0x7f080012;
+        public static final int subjSpin=0x7f080012;
     }
     public static final class layout {
         public static final int activity_addreview=0x7f030000;
@@ -68,11 +68,11 @@ public final class R {
     }
     public static final class string {
         public static final int action_settings=0x7f050001;
-        public static final int addReview_emailLabel=0x7f050016;
-        public static final int addReview_reviewLabel=0x7f050017;
-        public static final int addReview_submitButton=0x7f050018;
-        public static final int addreview_pageheader=0x7f050014;
-        public static final int addreview_scoreLabel=0x7f050015;
+        public static final int addReview_emailLabel=0x7f050018;
+        public static final int addReview_reviewLabel=0x7f050019;
+        public static final int addReview_submitButton=0x7f05001a;
+        public static final int addreview_pageheader=0x7f050016;
+        public static final int addreview_scoreLabel=0x7f050017;
         public static final int app_name=0x7f050000;
         public static final int courseoverview_TitleLabel=0x7f050007;
         public static final int courseoverview_TitleValue=0x7f050008;
@@ -86,7 +86,9 @@ public final class R {
         public static final int icprofile_ReviewsLabel=0x7f05000f;
         public static final int icprofile_addreviewbutton=0x7f050012;
         public static final int icprofile_pageheader=0x7f05000a;
-        public static final int main_searchbutton=0x7f050013;
+        public static final int main_instructorHint=0x7f050015;
+        public static final int main_searchButton=0x7f050013;
+        public static final int main_subjSpin=0x7f050014;
         public static final int noresults_msg=0x7f050010;
         public static final int title_activity_addreview=0x7f050005;
         public static final int title_activity_courseoverview=0x7f050004;

@@ -20,7 +20,9 @@
     <string name="noresults_msg">No Results Found</string>
     <string name="title_activity_icprofile">MainActivity</string>
     <string name="icprofile_addreviewbutton">Add Review</string>
-    <string name="main_searchbutton">Find</string>
+    <string name="main_searchButton">Find</string>
+    <string name="main_subjSpin">Subject</string>
+    <string name="main_instructorHint">Instructor</string>
     <string name="addreview_pageheader">Add New Review</string>
     <string name="addreview_scoreLabel">"Score: "</string>
     <string name="addReview_emailLabel">"Email: "</string>
