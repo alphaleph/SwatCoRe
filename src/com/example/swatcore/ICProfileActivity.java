@@ -24,6 +24,10 @@ public class ICProfileActivity extends ListActivity {
 	private String courseTitle, instructor, objID;
 	ParseQuery<ParseObject> revQuery;
 	private static final String REVIEW_TABLE = "Review";
+	
+	public int numReviews = 0;
+	public double avQuality = 0;
+	public double avDifficulty = 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +44,20 @@ public class ICProfileActivity extends ListActivity {
 
 		TextView insValueView = (TextView) findViewById(R.id.icprofile_insValue);
 		insValueView.setText(instructor);
-
+	
 		populateList();
+		
+		TextView reviewLabel = (TextView) findViewById(R.id.icprofile_ReviewsLabel);
+		reviewLabel.setText("Reviews (" + numReviews + "): ");
+		
+		if (numReviews == 0) {
+			TextView avRatingsMessage = (TextView) findViewById(R.id.icprofile_ratingsMessage);
+			avRatingsMessage.setText("No reviews yet!");
+		}
+		else {
+			TextView avRatingsMessage = (TextView) findViewById(R.id.icprofile_ratingsMessage);
+			avRatingsMessage.setText("Course Quality: " + avQuality + ", Difficulty: " + avDifficulty);
+		}
 	}
 	
 	@Override
@@ -57,27 +73,50 @@ public class ICProfileActivity extends ListActivity {
 
 			@Override
 			public void done(List<ParseObject> objects, ParseException e) {
-
-				/*if (objects.size() == 0) {
-					 = new String[1];
-					instructors[0] = NO_RESULTS_MSG;
-				}*/
+				
 				ArrayList<HashMap<String,String>> revList = new ArrayList<HashMap<String,String>>();
-
-				for (ParseObject object: objects) {
-					HashMap<String,String> temp = new HashMap<String,String>();	
-					temp.put("score",object.getString("score"));
-					temp.put("content", object.getString("content"));
-					Log.v("ICPROFILE", object.getString("content"));
-					revList.add(temp);
+				if (objects.size() == 0) {
+					HashMap<String,String> empty = new HashMap<String,String>();
+					empty.put("scoreMessage", "No reviews yet!");
+					empty.put("content", "");
+					revList.add(empty);
+				}
+				else {
+					double qualitySum = 0;
+					double difficultySum = 0;
+					int numRev = 0;
+					for (ParseObject object: objects) {
+						numRev++;
+						HashMap<String,String> temp = new HashMap<String,String>();	
+						String tempQuality = object.getString("quality");
+						qualitySum += Integer.parseInt(tempQuality);
+						String tempDifficulty = object.getString("difficulty");
+						difficultySum += Integer.parseInt(tempDifficulty);
+						String scoreMessage = "Course Quality: " + tempQuality + ", Difficulty: " + tempDifficulty;
+						temp.put("scoreMessage",  scoreMessage);
+						temp.put("content", object.getString("content"));
+						Log.v("ICPROFILE", object.getString("content"));
+						revList.add(temp);
+						Log.v("FORLOOP", "Object counted");
+					}
+					
+					Log.v("average", "qualitySum = " + qualitySum);
+					Log.v("average", "difficultySum = " + difficultySum);
+					Log.v("average", "numRev = " + numRev);
+					
+					ICProfileActivity.this.avQuality = qualitySum / numRev;
+					ICProfileActivity.this.avDifficulty = difficultySum / numRev;
+					ICProfileActivity.this.numReviews = numRev;
+					
 				}
 				SimpleAdapter adapter = new SimpleAdapter(ICProfileActivity.this, 
 						revList, 
 						R.layout.revlist_item, 
-						new String[] {"score","content"},
-						new int[] {R.id.scoreValue,R.id.contentValue}
+						new String[] {"scoreMessage","content"},
+						new int[] {R.id.scoreMessage,R.id.contentValue}
 						);	
 				setListAdapter(adapter);
+				
 			}
 		});
 		

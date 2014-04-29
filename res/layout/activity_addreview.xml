@@ -13,13 +13,90 @@
         android:text="@string/addreview_pageheader"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
+    <Button
+        android:id="@+id/addReview_submitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/addReview_reviewLabel"
+        android:layout_alignBottom="@+id/addReview_reviewLabel"
+        android:layout_toRightOf="@+id/icprofile_header"
+        android:onClick="onSubmitButtonClick"
+        android:text="@string/addReview_submitButton" />
+
+    <EditText
+        android:id="@+id/addReview_difficultyValue"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/addReview_emailLabel"
+        android:layout_toLeftOf="@+id/difficultyOutOfTen"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/difficultyOutOfTen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/addReview_emailLabel"
+        android:layout_toRightOf="@+id/icprofile_header"
+        android:text="@string/addReview_outoften"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/qualityOutOfTen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/addReview_difficultyLabel"
+        android:layout_alignLeft="@+id/difficultyOutOfTen"
+        android:text="@string/addReview_outoften"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/addReview_qualityValue"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/icprofile_header"
+        android:layout_marginTop="24dp"
+        android:layout_toLeftOf="@+id/qualityOutOfTen"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/addReview_qualityLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/addReview_qualityValue"
+        android:layout_alignBottom="@+id/addReview_qualityValue"
+        android:layout_alignParentLeft="true"
+        android:text="@string/addreview_qualityLabel"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/addReview_difficultyLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/addReview_qualityLabel"
+        android:layout_below="@+id/addReview_qualityValue"
+        android:layout_marginTop="26dp"
+        android:text="@string/addreview_difficultyLabel"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/addReview_reviewLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/addReview_difficultyLabel"
+        android:layout_marginTop="99dp"
+        android:text="@string/addReview_reviewLabel"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
     <TextView
         android:id="@+id/addReview_emailLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/addReview_scoreLabel"
-        android:layout_below="@+id/addReview_scoreValue"
-        android:layout_marginTop="16dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/addReview_difficultyLabel"
+        android:layout_marginTop="22dp"
         android:text="@string/addReview_emailLabel"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -27,64 +104,21 @@
         android:id="@+id/addReview_emailValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/addReview_emailLabel"
-        android:layout_alignBottom="@+id/addReview_emailLabel"
-        android:layout_alignLeft="@+id/addReview_scoreValue"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/addReview_emailLabel"
         android:ems="10"
         android:inputType="textEmailAddress" />
-
-    <TextView
-        android:id="@+id/addReview_scoreLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/addReview_scoreValue"
-        android:layout_alignBottom="@+id/addReview_scoreValue"
-        android:layout_toLeftOf="@+id/icprofile_header"
-        android:text="@string/addreview_scoreLabel"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <EditText
-        android:id="@+id/addReview_scoreValue"
-        android:layout_width="75dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/icprofile_header"
-        android:layout_below="@+id/icprofile_header"
-        android:layout_marginTop="17dp"
-        android:ems="10"
-        android:inputType="number" >
-
-        <requestFocus />
-    </EditText>
-
-    <TextView
-        android:id="@+id/addReview_reviewLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/addReview_emailLabel"
-        android:layout_below="@+id/addReview_emailValue"
-        android:layout_marginTop="26dp"
-        android:text="@string/addReview_reviewLabel"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <EditText
         android:id="@+id/addReview_reviewValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/addReview_reviewLabel"
-        android:layout_alignRight="@+id/addReview_emailValue"
-        android:layout_below="@+id/addReview_reviewLabel"
-        android:layout_marginTop="17dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/addReview_submitButton"
+        android:layout_marginTop="19dp"
         android:ems="10"
         android:inputType="textMultiLine" />
-
-    <Button
-        android:id="@+id/addReview_submitButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="54dp"
-        android:onClick="onSubmitButtonClick"
-        android:text="@string/addReview_submitButton" />
 
 </RelativeLayout>

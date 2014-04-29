@@ -16,15 +16,19 @@
     <string name="icprofile_CourseValue">*Course Title*</string>
     <string name="icprofile_InsLabel">Instructor: </string>
     <string name="icprofile_InsValue">*Instructor Name*</string>
-    <string name="icprofile_ReviewsLabel">Reviews:</string>
+    <string name="icprofile_ReviewsLabel">Reviews (loading...):</string>
     <string name="noresults_msg">No Results Found</string>
     <string name="title_activity_icprofile">MainActivity</string>
     <string name="icprofile_addreviewbutton">Add Review</string>
     <string name="main_searchbutton">Find</string>
     <string name="addreview_pageheader">Add New Review</string>
-    <string name="addreview_scoreLabel">"Score: "</string>
+    <string name="addreview_qualityLabel">"Course Quality: "</string>
     <string name="addReview_emailLabel">"Email: "</string>
     <string name="addReview_reviewLabel">"Review: "</string>
     <string name="addReview_submitButton">Create</string>
+    <string name="addReview_outoften">/10</string>
+    <string name="addreview_difficultyLabel">&quot;Difficulty: &quot;</string>
+    <string name="icprofile_RatingsLabel">Average Ratings:</string>
+    <string name="Loading">Loading, please wait...</string>
 
 </resources>

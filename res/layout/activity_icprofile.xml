@@ -54,22 +54,12 @@
         android:text="@string/icprofile_InsValue"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
-    <TextView
-        android:id="@+id/icprofile_ReviewsLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/icprofile_insLabel"
-        android:layout_marginTop="20dp"
-        android:text="@string/icprofile_ReviewsLabel"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
     <ListView
         android:id="@android:id/list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/icprofile_ReviewsLabel"
+        android:layout_alignLeft="@+id/icprofile_ReviewsLabel"
+        android:layout_below="@+id/icprofile_addbutton"
         tools:listitem="@android:layout/simple_expandable_list_item_2" >
 
     </ListView>
@@ -79,10 +69,39 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/icprofile_ReviewsLabel"
-        android:layout_alignBottom="@+id/icprofile_ReviewsLabel"
         android:layout_alignRight="@+id/icprofile_header"
+        android:layout_below="@+id/icprofile_ReviewsLabel"
         android:onClick="onAddButtonClick"
         android:text="@string/icprofile_addreviewbutton" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/icprofile_insLabel"
+        android:layout_below="@+id/icprofile_insLabel"
+        android:text="@string/icprofile_RatingsLabel"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/icprofile_ReviewsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="44dp"
+        android:text="@string/icprofile_ReviewsLabel"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/icprofile_ratingsMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/icprofile_header"
+        android:layout_alignRight="@+id/icprofile_addbutton"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="16dp"
+        android:text="@string/Loading"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
 </RelativeLayout>
