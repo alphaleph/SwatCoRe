@@ -32,5 +32,8 @@
     <string name="addreview_difficultyLabel">&quot;Difficulty: &quot;</string>
     <string name="icprofile_RatingsLabel">Average Ratings:</string>
     <string name="Loading">Loading, please wait...</string>
+    <string name="icprofile_addreviewbuttondesc">Add review button</string>
+    <string name="addreview_submitbuttondesc">Submit Button</string>
+    <string name="main_findbuttondesc">Find button</string>
 
 </resources>

@@ -13,90 +13,36 @@
         android:text="@string/addreview_pageheader"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <Button
-        android:id="@+id/addReview_submitButton"
+    <ImageButton
+        android:id="@+id/submit_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/addReview_reviewLabel"
-        android:layout_alignBottom="@+id/addReview_reviewLabel"
-        android:layout_toRightOf="@+id/icprofile_header"
-        android:onClick="onSubmitButtonClick"
-        android:text="@string/addReview_submitButton" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="25dp"
+        android:background="#00000000"
+        android:contentDescription="@string/addreview_submitbuttondesc"
+        android:src="@drawable/submit_button" />
 
     <EditText
-        android:id="@+id/addReview_difficultyValue"
-        android:layout_width="75dp"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/addReview_emailLabel"
-        android:layout_toLeftOf="@+id/difficultyOutOfTen"
-        android:ems="10"
-        android:inputType="number" />
-
-    <TextView
-        android:id="@+id/difficultyOutOfTen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/addReview_emailLabel"
-        android:layout_toRightOf="@+id/icprofile_header"
-        android:text="@string/addReview_outoften"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
-        android:id="@+id/qualityOutOfTen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/addReview_difficultyLabel"
-        android:layout_alignLeft="@+id/difficultyOutOfTen"
-        android:text="@string/addReview_outoften"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <EditText
-        android:id="@+id/addReview_qualityValue"
-        android:layout_width="75dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/icprofile_header"
-        android:layout_marginTop="24dp"
-        android:layout_toLeftOf="@+id/qualityOutOfTen"
-        android:ems="10"
-        android:inputType="number" />
-
-    <TextView
-        android:id="@+id/addReview_qualityLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/addReview_qualityValue"
-        android:layout_alignBottom="@+id/addReview_qualityValue"
-        android:layout_alignParentLeft="true"
-        android:text="@string/addreview_qualityLabel"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
-        android:id="@+id/addReview_difficultyLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/addReview_qualityLabel"
-        android:layout_below="@+id/addReview_qualityValue"
-        android:layout_marginTop="26dp"
-        android:text="@string/addreview_difficultyLabel"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
-        android:id="@+id/addReview_reviewLabel"
+        android:id="@+id/addReview_reviewValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/addReview_difficultyLabel"
-        android:layout_marginTop="99dp"
-        android:text="@string/addReview_reviewLabel"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/addReview_reviewLabel"
+        android:ems="10"
+        android:inputType="textMultiLine" >
+
+        <requestFocus />
+    </EditText>
 
     <TextView
         android:id="@+id/addReview_emailLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/addReview_difficultyLabel"
-        android:layout_marginTop="22dp"
+        android:layout_centerVertical="true"
         android:text="@string/addReview_emailLabel"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -110,15 +56,52 @@
         android:ems="10"
         android:inputType="textEmailAddress" />
 
-    <EditText
-        android:id="@+id/addReview_reviewValue"
+    <TextView
+        android:id="@+id/addReview_reviewLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/addReview_submitButton"
-        android:layout_marginTop="19dp"
-        android:ems="10"
-        android:inputType="textMultiLine" />
+        android:layout_below="@+id/addReview_emailValue"
+        android:layout_marginTop="20dp"
+        android:text="@string/addReview_reviewLabel"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/addReview_difficultyLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/difficultyRatingBar"
+        android:layout_alignParentLeft="true"
+        android:text="@string/addreview_difficultyLabel"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <RatingBar
+        android:id="@+id/difficultyRatingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/addReview_emailLabel"
+        android:layout_centerHorizontal="true"
+        android:numStars="5"
+        android:rating="0.0"
+        android:stepSize="1.0" />
+
+    <RatingBar
+        android:id="@+id/qualityRatingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/addReview_difficultyLabel"
+        android:layout_alignLeft="@+id/difficultyRatingBar"
+        android:numStars="5"
+        android:rating="0.0"
+        android:stepSize="1.0" />
+
+    <TextView
+        android:id="@+id/addReview_qualityLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/qualityRatingBar"
+        android:layout_alignParentLeft="true"
+        android:text="@string/addreview_qualityLabel"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>

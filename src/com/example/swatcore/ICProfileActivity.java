@@ -5,12 +5,15 @@ import java.util.HashMap;
 import java.util.List;
 
 import android.app.ListActivity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
@@ -24,6 +27,7 @@ public class ICProfileActivity extends ListActivity {
 	private String courseTitle, instructor, objID;
 	ParseQuery<ParseObject> revQuery;
 	private static final String REVIEW_TABLE = "Review";
+	private ImageButton imageButton;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +38,7 @@ public class ICProfileActivity extends ListActivity {
 		courseTitle = i.getStringExtra("title");
 		instructor = i.getStringExtra("fullName");
 		objID = i.getStringExtra("objectId");
+		addListenerOnButton();
 
 		TextView titleValueView = (TextView) findViewById(R.id.icprofile_titleValue);
 		titleValueView.setText(courseTitle);
@@ -123,22 +128,29 @@ public class ICProfileActivity extends ListActivity {
 		revQuery.orderByAscending("");
 		return revQuery;
 	}
-
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.icprofile, menu);
 		return true;
 	}
-
-	public void onAddButtonClick(View v) {
-		// TODO Auto-generated method stub
-		Log.v("ICProfile: ", "Preparing AddReview Intent");
-		Intent intent = new Intent(this, AddReviewActivity.class);
-		intent.putExtra("objectID", objID);
-		Log.v("ICProfile: ", "Sending AddReview Intent");
-		startActivity(intent);
-
+	
+	
+	public void addListenerOnButton() {
+		 
+		imageButton = (ImageButton) findViewById(R.id.add_button);
+ 
+		imageButton.setOnClickListener(new OnClickListener() {
+ 
+			@Override
+			public void onClick(View v) {
+				Log.v("ICProfile: ", "Preparing AddReview Intent");
+				Intent intent = new Intent(ICProfileActivity.this, AddReviewActivity.class);
+				intent.putExtra("objectID", objID);
+				Log.v("ICProfile: ", "Sending AddReview Intent");
+				startActivity(intent);
+			}
+		});
 	}
-
 }

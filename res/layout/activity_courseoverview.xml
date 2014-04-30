@@ -5,13 +5,45 @@
     android:layout_height="match_parent"
     tools:context=".CourseOverviewActivity" >
 
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/insLabel"
+        android:layout_below="@+id/insLabel"
+        android:padding="10dp"
+        android:paddingRight="10dp" >
+
+    </ListView>
+
     <TextView
         android:id="@+id/courseoverview_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
         android:text="@string/courseoverview_pageheader"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/insLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/courseoverview_titlelabel"
+        android:layout_below="@+id/courseoverview_titlelabel"
+        android:text="@string/courseoverview_insLabel"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/courseoverview_titleValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/courseoverview_titlelabel"
+        android:layout_alignBottom="@+id/courseoverview_titlelabel"
+        android:layout_alignLeft="@+id/courseoverview_header"
+        android:text="@string/courseoverview_TitleValue"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
         android:id="@+id/courseoverview_titlelabel"
@@ -19,35 +51,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/courseoverview_header"
-        android:layout_marginTop="21dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="25dp"
         android:text="@string/courseoverview_TitleLabel"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
-        android:id="@+id/courseoverview_titleValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/courseoverview_titlelabel"
-        android:layout_alignLeft="@+id/courseoverview_header"
-        android:text="@string/courseoverview_TitleValue"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
-
-    <ListView
-        android:id="@android:id/list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/courseoverview_titlelabel"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="26dp" >
-    </ListView>
-
-    <TextView
-        android:id="@+id/insLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/courseoverview_titlelabel"
-        android:text="@string/courseoverview_insLabel"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>

@@ -7,7 +7,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".IcprofileActivity" >
-    
+
     <TextView
         android:id="@+id/icprofile_header"
         android:layout_width="wrap_content"
@@ -54,35 +54,6 @@
         android:text="@string/icprofile_InsValue"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
-    <ListView
-        android:id="@android:id/list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/icprofile_ReviewsLabel"
-        android:layout_below="@+id/icprofile_addbutton"
-        tools:listitem="@android:layout/simple_expandable_list_item_2" >
-
-    </ListView>
-
-    <Button
-        android:id="@+id/icprofile_addbutton"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/icprofile_header"
-        android:layout_below="@+id/icprofile_ReviewsLabel"
-        android:onClick="onAddButtonClick"
-        android:text="@string/icprofile_addreviewbutton" />
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/icprofile_insLabel"
-        android:layout_below="@+id/icprofile_insLabel"
-        android:text="@string/icprofile_RatingsLabel"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
     <TextView
         android:id="@+id/icprofile_ReviewsLabel"
         android:layout_width="wrap_content"
@@ -98,10 +69,38 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/icprofile_header"
-        android:layout_alignRight="@+id/icprofile_addbutton"
+        android:layout_alignRight="@+id/icprofile_header"
         android:layout_below="@+id/textView1"
         android:layout_marginTop="16dp"
         android:text="@string/Loading"
         android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/icprofile_insLabel"
+        android:layout_below="@+id/icprofile_insLabel"
+        android:text="@string/icprofile_RatingsLabel"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/icprofile_ReviewsLabel"
+        android:layout_below="@+id/add_button"
+        tools:listitem="@android:layout/simple_expandable_list_item_2" >
+    </ListView>
+
+    <ImageButton
+        android:id="@+id/add_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@android:id/list"
+        android:layout_alignTop="@+id/icprofile_ReviewsLabel"
+        android:background="#00000000"
+        android:contentDescription="@string/icprofile_addreviewbuttondesc"
+        android:src="@drawable/add_button" />
 
 </RelativeLayout>

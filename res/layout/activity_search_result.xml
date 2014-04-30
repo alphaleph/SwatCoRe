@@ -13,7 +13,9 @@
     <ListView
         android1:id="@android:id/list"
         android1:layout_width="match_parent"
-        android1:layout_height="wrap_content" >
+        android1:layout_height="wrap_content"
+        android1:padding="10dp"
+         >
     </ListView>
 
 </LinearLayout>
