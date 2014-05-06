@@ -15,7 +15,7 @@
     <string name="icprofile_CourseValue">*Course Title*</string>
     <string name="icprofile_InsLabel">Instructor: </string>
     <string name="icprofile_InsValue">*Instructor Name*</string>
-    <string name="icprofile_ReviewsLabel">Reviews (loading...):</string>
+    <string name="icprofile_ReviewsLabel">Reviews (0):</string>
     <string name="noresults_msg">No Results Found</string>
     <string name="title_activity_icprofile">MainActivity</string>
     <string name="icprofile_addreviewbutton">Add Review</string>
@@ -31,7 +31,7 @@
 
     <string name="addreview_difficultyLabel">&quot;Difficulty: &quot;</string>
     <string name="icprofile_RatingsLabel">Average Ratings:</string>
-    <string name="Loading">Loading, please wait...</string>
+    <string name="Loading">No Ratings Yet</string>
     <string name="icprofile_addreviewbuttondesc">Add review button</string>
     <string name="addreview_submitbuttondesc">Submit Button</string>
     <string name="main_findbuttondesc">Find button</string>

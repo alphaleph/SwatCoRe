@@ -45,9 +45,9 @@ public final class R {
         public static final int addReview_reviewValue=0x7f090002;
         public static final int add_button=0x7f090015;
         public static final int contentValue=0x7f09001b;
-        public static final int courseoverview_header=0x7f09000c;
+        public static final int courseoverview_header=0x7f09000b;
         public static final int courseoverview_titleValue=0x7f09000d;
-        public static final int courseoverview_titlelabel=0x7f09000b;
+        public static final int courseoverview_titlelabel=0x7f09000c;
         public static final int difficultyRatingBar=0x7f090007;
         public static final int find_button=0x7f090016;
         public static final int icprofile_ReviewsLabel=0x7f090012;
