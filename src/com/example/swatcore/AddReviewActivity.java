@@ -10,8 +10,6 @@ import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RatingBar;
-import android.widget.RatingBar.OnRatingBarChangeListener;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.ParseObject;
@@ -25,10 +23,8 @@ public class AddReviewActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_addreview);
-		Log.v("ADDREVIEW","at onCreate");
 		
 		Intent i = this.getIntent();
 		objID = i.getStringExtra("objectID");
@@ -37,7 +33,6 @@ public class AddReviewActivity extends Activity {
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// TODO Auto-generated method stub
 		return super.onCreateOptionsMenu(menu);
 	}
 	
@@ -73,16 +68,13 @@ public class AddReviewActivity extends Activity {
 				
 				if (valid) {
 
-					Log.v("AddReview: ", "Preparing Review Submission");
 					ParseObject review = new ParseObject("Review");
 
 					review.put("parentID", objID);
-					Log.v("AddReview: ", "Put objID into parentID");	
 					review.put("quality", qualityValue);
 					review.put("difficulty", difficultyValue);
 					review.put("email", emailValue);
 					review.put("content", reviewValue);
-					Log.v("AddReview: ", "About to send the Review Submission");
 					review.saveInBackground();
 
 					Log.v("AddReview: ", "Sending Review Submission");

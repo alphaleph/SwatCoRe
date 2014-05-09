@@ -5,14 +5,12 @@ import java.util.HashMap;
 import java.util.List;
 
 import android.app.ListActivity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
@@ -56,7 +54,6 @@ public class ICProfileActivity extends ListActivity {
 	}
 
 	private void populateList() {
-		Log.v("ICProfileActivity", "I'm about to make the revQuery!");
 		revQuery = createRevQuery(objID);
 		revQuery.findInBackground(new FindCallback<ParseObject>() {
 
@@ -84,14 +81,8 @@ public class ICProfileActivity extends ListActivity {
 						String scoreMessage = "Course Quality: " + tempQuality + ", Difficulty: " + tempDifficulty;
 						temp.put("scoreMessage",  scoreMessage);
 						temp.put("content", object.getString("content"));
-						Log.v("ICPROFILE", object.getString("content"));
 						revList.add(temp);
-						Log.v("FORLOOP", "Object counted");
 					}
-					
-					Log.v("average", "qualitySum = " + qualitySum);
-					Log.v("average", "difficultySum = " + difficultySum);
-					Log.v("average", "numRev =  " + numRev);
 					
 					double avQuality = qualitySum / numRev;
 					double avDifficulty = difficultySum / numRev;
@@ -145,10 +136,8 @@ public class ICProfileActivity extends ListActivity {
  
 			@Override
 			public void onClick(View v) {
-				Log.v("ICProfile: ", "Preparing AddReview Intent");
 				Intent intent = new Intent(ICProfileActivity.this, AddReviewActivity.class);
 				intent.putExtra("objectID", objID);
-				Log.v("ICProfile: ", "Sending AddReview Intent");
 				startActivity(intent);
 			}
 		});

@@ -1,7 +1,6 @@
 package com.example.swatcore;
 
 import java.util.List;
-import java.util.Set;
 
 import android.app.ListActivity;
 import android.content.Intent;
@@ -29,11 +28,9 @@ public class CourseOverviewActivity extends ListActivity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_courseoverview);
 		
-		Log.v("CourseOverviewActivity", "I'm in the courseoverviewactivity!");
 		//Set Course Title
 		Intent i = this.getIntent();
 		courseTitle = i.getStringExtra("title");
@@ -41,19 +38,14 @@ public class CourseOverviewActivity extends ListActivity {
 		TextView titleValueView = (TextView) findViewById(R.id.courseoverview_titleValue);
 		titleValueView.setText(courseTitle);
 		
-		Log.v("CourseOverviewActivity", "I set the TextView!");
-		
 		//Set Teacher List
 		insLV = getListView();
-		
-		Log.v("CourseOverviewActivity", "I'm about to make the query!");
 		
 		insQuery = createInsQuery(courseTitle);
 		insQuery.findInBackground(new FindCallback<ParseObject>() {
 			
 			@Override
 			public void done(List<ParseObject> objects, ParseException e) {
-				// TODO Auto-generated method stub
 				
 				if (objects.size() == 0) {
 					instructors = new String[1];
@@ -61,10 +53,8 @@ public class CourseOverviewActivity extends ListActivity {
 				}
 				else {
 					instructors = new String[objects.size()];
-					//Log.d("SEARCHRESULT", "Im in the function! " + objects.size());
 					for (int i=0; i<objects.size(); i++) {
 						instructors[i] = objects.get(i).getString("fullName");
-						Log.d("COURSEOVERVIEW", objects.get(i).getString("fullName"));
 					}
 				}
 				ArrayAdapter<String> insListAdapter = new ArrayAdapter<String>(CourseOverviewActivity.this, R.layout.search_result_item, instructors);
@@ -82,7 +72,6 @@ public class CourseOverviewActivity extends ListActivity {
 	
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
-		// TODO Auto-generated method stub
 		super.onListItemClick(l, v, position, id);
 		
 		if (!instructors[position].equals(NO_RESULTS_MSG)) {
@@ -91,32 +80,22 @@ public class CourseOverviewActivity extends ListActivity {
 			i.putExtra("fullName", instructors[position]);
 			String objID = getICobjectID(courseTitle, instructors[position]);
 			i.putExtra("objectId",  objID);
-			Log.v("COURSEOVERVIEW", "Initializing ICProfileActivity");
 			startActivity(i);
 		}
 	}
 
 	private String getICobjectID(String courseTitle, String insName) {
-		// TODO Auto-generated method stub
 		
 		ParseQuery<ParseObject> ObjectIDQuery = createICObjectIDQuery(courseTitle, insName);
 		List<ParseObject> objects = null;
 		try {
 			objects = ObjectIDQuery.find();
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		String objID = null;
 		for (ParseObject object : objects) {
 			objID = object.getObjectId();
-		}
-		
-		if (objID.equals(null)) {
-			Log.wtf("fuck me", "objID is null");
-		}
-		else {
-			Log.v("YAYYYY", "objID is" + objID);
 		}
 		
 		return objID;
